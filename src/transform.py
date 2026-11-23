@@ -8,7 +8,7 @@ def transform_weather_data(raw_json: dict, city: str) -> pd.DataFrame:
     for day in daily_forecasts:
         date_str = day.get("date")
         for slot in day.get("hourly", []):
-            # Convert "0", "300", "1200" into "00:00", "03:00", "12:00"
+            #Convert "0", "300", "1200" into "00:00", "03:00", "12:00"
             raw_time = slot.get("time", "0").zfill(4)
             formatted_time = f"{raw_time[:2]}:{raw_time[2:]}"
             
@@ -23,7 +23,7 @@ def transform_weather_data(raw_json: dict, city: str) -> pd.DataFrame:
 
     df = pd.DataFrame(records)
 
-    # Data Cleaning & Quality Checks
+    #Data Cleaning and Quality Checks
     df.dropna(subset=["recorded_at", "temperature_c"], inplace=True)
     df.drop_duplicates(subset=["recorded_at", "city"], inplace=True)
     df["ingested_at"] = pd.Timestamp.utcnow()
