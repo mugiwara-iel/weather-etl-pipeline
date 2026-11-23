@@ -17,6 +17,6 @@ def load_to_bigquery(df: pd.DataFrame) -> None:
     )
 
     job = client.load_table_from_dataframe(df, full_table_id, job_config=job_config)
-    job.result()  # Wait for the load job to complete
+    job.result()  #Wait for the load job to complete
 
     logging.info(f"Successfully loaded {len(df)} rows into {full_table_id}.")
