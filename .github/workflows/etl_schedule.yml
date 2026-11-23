@@ -2,8 +2,8 @@ name: Daily Weather ETL Pipeline
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Runs automatically every day at 00:00 UTC (8:00 AM PHT)
-  workflow_dispatch: # Allows you to trigger a manual run anytime from GitHub
+    - cron: "0 0 * * *" #Runs automatically every day at 00:00 UTC (8:00 AM PHT)
+  workflow_dispatch: #Allows the triggering of manual run anytime from GitHub
 
 jobs:
   run-etl:
